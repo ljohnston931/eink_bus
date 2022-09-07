@@ -1,11 +1,11 @@
 /*****************************************************************************
-* | File      	:   DEV_Config.h
+* | File      	:   EPD_4in2b_V2.h
 * | Author      :   Waveshare team
-* | Function    :   Hardware underlying interface
+* | Function    :   4.2inch e-paper b V2
 * | Info        :
 *----------------
 * |	This version:   V1.0
-* | Date        :   2020-02-19
+* | Date        :   2020-11-27
 * | Info        :
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,46 +27,18 @@
 # THE SOFTWARE.
 #
 ******************************************************************************/
-#ifndef _DEV_CONFIG_H_
-#define _DEV_CONFIG_H_
+#ifndef __EPD_4IN2B_V2_H_
+#define __EPD_4IN2B_V2_H_
 
-#include <Arduino.h>
-#include <stdint.h>
-#include <stdio.h>
+#include "DEV_Config.h"
 
-/**
- * data
-**/
-#define UBYTE   uint8_t
-#define UWORD   uint16_t
-#define UDOUBLE uint32_t
+// Display resolution
+#define EPD_4IN2B_V2_WIDTH       400
+#define EPD_4IN2B_V2_HEIGHT      300
 
-/**
- * GPIO config
-**/
-#define EPD_SCK_PIN  13
-#define EPD_MOSI_PIN 14
-#define EPD_CS_PIN   15
-#define EPD_RST_PIN  26
-#define EPD_DC_PIN   27
-#define EPD_BUSY_PIN 25
-
-#define GPIO_PIN_SET   1
-#define GPIO_PIN_RESET 0
-
-/**
- * GPIO read and write
-**/
-#define DEV_Digital_Write(_pin, _value) digitalWrite(_pin, _value == 0? LOW:HIGH)
-#define DEV_Digital_Read(_pin) digitalRead(_pin)
-
-/**
- * delay x ms
-**/
-#define DEV_Delay_ms(__xms) delay(__xms)
-
-/*------------------------------------------------------------------------------------------------------*/
-UBYTE DEV_Module_Init(void);
-void DEV_SPI_WriteByte(UBYTE data);
+void EPD_4IN2B_V2_Init(void);
+void EPD_4IN2B_V2_Clear(void);
+void EPD_4IN2B_V2_Display(const UBYTE *blackimage, const UBYTE *ryimage);
+void EPD_4IN2B_V2_Sleep(void);
 
 #endif
