@@ -25,7 +25,7 @@ void setup()
     while (1);
   }
   printf("Paint_NewImage\r\n");
-  Paint_NewImage(BlackImage, EPD_7IN5_V2_WIDTH, EPD_7IN5_V2_HEIGHT, 0, WHITE);
+  Paint_NewImage(BlackImage, EPD_7IN5_V2_WIDTH, EPD_7IN5_V2_HEIGHT, 90, WHITE);
 
 #if 1   // Drawing on the image
   //1.Select Image
